@@ -46,6 +46,7 @@ describe('<CitySearch /> component', () => {
 
 	//Getting failed test <CitySearch /> Change state when text input changes.
 	//Type Error: Cannot read properties of undefined (reading 'filter')
+
 	/*
 	test('suggestion list match the query when changed', () => {
 		CitySearchWrapper.setState({ query: '', suggestions: [] });
@@ -58,12 +59,12 @@ describe('<CitySearch /> component', () => {
 		});
 		expect(CitySearchWrapper.state("suggestions")).toEqual(filteredLocations);
 	});
-	*/
+*/
 
 	//Scenario 3
 	test("selecting a suggestion should change query state", () => {
 		CitySearchWrapper.setState({
-			query: 'London, UK'
+			query: 'Berlin'
 		});
 		const suggestions = CitySearchWrapper.state('suggestions');
 		CitySearchWrapper.find('.suggestions li').at(0).simulate('click');

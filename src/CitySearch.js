@@ -14,6 +14,7 @@ class CitySearch extends Component {
 	}
 
 
+
 	//Getting failed test <CitySearch /> Change state when text input changes.
 	//Type Error: Cannot read properties of undefined (reading 'filter')
 	/*
