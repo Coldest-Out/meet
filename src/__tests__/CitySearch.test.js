@@ -35,7 +35,7 @@ describe('<CitySearch /> component', () => {
 	});
 
 	test('render list of suggestions correctly', () => {
-		const locations = extractLocations(mockData);
+		//const locations = extractLocations(mockData);
 		CitySearchWrapper.setState({ suggestions: locations });
 		const suggestions = CitySearchWrapper.state('suggestions');
 		expect(CitySearchWrapper.find('.suggestions li')).toHaveLength(suggestions.length + 1);
@@ -58,6 +58,17 @@ describe('<CitySearch /> component', () => {
 		});
 		expect(CitySearchWrapper.state("suggestions")).toEqual(filteredLocations);
 	});
-*/
+	*/
+
+	//Scenario 3
+	test("selecting a suggestion should change query state", () => {
+		CitySearchWrapper.setState({
+			query: 'London, UK'
+		});
+		const suggestions = CitySearchWrapper.state('suggestions');
+		CitySearchWrapper.find('.suggestions li').at(0).simulate('click');
+		expect(CitySearchWrapper.state("query")).toBe(suggestions[0]);
+	});
+
 
 });
