@@ -8,7 +8,7 @@ describe('<CitySearch /> component', () => {
 	let locations, CitySearchWrapper;
 	beforeAll(() => {
 		locations = extractLocations(mockData);
-		CitySearchWrapper = shallow(<CitySearch />);
+		CitySearchWrapper = shallow(<CitySearch locations={locations} />);
 	});
 
 	test('render text input', () => {
@@ -25,7 +25,7 @@ describe('<CitySearch /> component', () => {
 	});
 
 	test('change state when text input changes', () => {
-		const CitySearchWrapper = shallow(<CitySearch />);
+		//const CitySearchWrapper = shallow(<CitySearch locations={locations} />);
 		CitySearchWrapper.setState({
 			query: 'Munich'
 		});
@@ -44,10 +44,6 @@ describe('<CitySearch /> component', () => {
 		}
 	});
 
-	//Getting failed test <CitySearch /> Change state when text input changes.
-	//Type Error: Cannot read properties of undefined (reading 'filter')
-
-	/*
 	test('suggestion list match the query when changed', () => {
 		CitySearchWrapper.setState({ query: '', suggestions: [] });
 		CitySearchWrapper.find(".city").simulate("change", {
@@ -59,7 +55,7 @@ describe('<CitySearch /> component', () => {
 		});
 		expect(CitySearchWrapper.state("suggestions")).toEqual(filteredLocations);
 	});
-*/
+
 
 	//Scenario 3
 	test("selecting a suggestion should change query state", () => {

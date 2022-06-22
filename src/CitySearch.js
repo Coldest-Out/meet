@@ -6,18 +6,10 @@ class CitySearch extends Component {
 		suggestions: []
 	}
 
-	//Delete this handle function once I get failed test working.
-
-	handleInputChanged = (event) => {
-		const value = event.target.value;
-		this.setState({ query: value });
-	}
-
-
-
 	//Getting failed test <CitySearch /> Change state when text input changes.
 	//Type Error: Cannot read properties of undefined (reading 'filter')
-	/*
+	//Corrected error by adding `locations={locations}` to the CitySearchWrapper = shallow(<CitySearch locations={locations} />);
+
 	handleInputChanged = (event) => {
 		const value = event.target.value;
 		const suggestions = this.props.locations.filter((location) => {
@@ -28,7 +20,7 @@ class CitySearch extends Component {
 			suggestions,
 		});
 	};
-*/
+
 
 	//Scenario 3
 	handleItemClicked = (suggestion) => {
