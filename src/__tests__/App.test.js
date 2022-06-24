@@ -49,6 +49,7 @@ describe('<App /> integration', () => {
 		AppWrapper.unmount();
 	});
 
+	// TypeError: this.props.updateEvents is not a function
 	test('get list of events matching the city selected by the user', async () => {
 		const AppWrapper = mount(<App />);
 		const CitySearchWrapper = AppWrapper.find(CitySearch);
@@ -64,6 +65,7 @@ describe('<App /> integration', () => {
 		AppWrapper.unmount();
 	});
 
+	// TypeError: this.props.updateEvents is not a function
 	test('get list of all events when user selects "See all cities"', async () => {
 		const AppWrapper = mount(<App />);
 		const suggestionItems = AppWrapper.find(CitySearch).find('.suggestions li');
