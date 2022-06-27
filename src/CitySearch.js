@@ -4,7 +4,8 @@ class CitySearch extends Component {
 
 	state = {
 		query: '',
-		suggestions: []
+		suggestions: [],
+		showSuggestions: undefined
 	}
 
 	//Getting failed test <CitySearch /> Change state when text input changes.
@@ -26,7 +27,8 @@ class CitySearch extends Component {
 	//Scenario 3
 	handleItemClicked = (suggestion) => {
 		this.setState({
-			query: suggestion
+			query: suggestion,
+			showSuggestions: false
 		});
 
 		this.props.updateEvents(suggestion);
@@ -40,8 +42,9 @@ class CitySearch extends Component {
 					className="city"
 					value={this.state.query}
 					onChange={this.handleInputChanged}
+					onFocus={() => { this.setState({ showSuggestions: true }) }}
 				/>
-				<ul className="suggestions">
+				<ul className="suggestions" style={this.state.showSuggestions ? {} : { display: 'none' }}>
 					{this.state.suggestions.map((suggestion) => (
 						<li
 							key={suggestion}
