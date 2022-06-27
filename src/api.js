@@ -38,7 +38,7 @@ const checkToken = async (accessToken) => {
 	return result;
 };
 
-const getEvents = async () => {
+const getEvents = async (max_results = 32) => {
 	NProgress.start();
 
 	if (window.location.href.startsWith("http://localhost")) {
@@ -51,7 +51,7 @@ const getEvents = async () => {
 
 	if (token) {
 		removeQuery();
-		const url = 'https://hk4s41skal.execute-api.us-west-1.amazonaws.com/dev/api/get-auth-url' + '/' + token;
+		const url = `https://hk4s41skal.execute-api.us-west-1.amazonaws.com/dev/api/get-auth-url/${token}/${max_results}`;
 		const result = await axios.get(url);
 		if (result.data) {
 			var locations = extractLocations(result.data.events);
@@ -80,7 +80,7 @@ const removeQuery = () => {
 const getToken = async (code) => {
 	const encodeCode = encodeURIComponent(code);
 	const { access_token } = await fetch(
-		'https://hk4s41skal.execute-api.us-west-1.amazonaws.com/dev/api/token' + '/' + encodeCode
+		`https://hk4s41skal.execute-api.us-west-1.amazonaws.com/dev/api/token/${encodeCode}`
 	)
 		.then((res) => {
 			return res.json();
