@@ -5,6 +5,18 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
+/*
+class MeetApplication extends React.Component {
+  render() {
+    return (
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    )
+  }
+}
+*/
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -12,6 +24,9 @@ root.render(
   </React.StrictMode>
 );
 
+//const container = document.getElementById('root')[0];
+//const root = createRoot(container);
+//root.render(<MeetApplication tab="home" />);
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://cra.link/PWA

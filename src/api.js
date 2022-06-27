@@ -19,7 +19,7 @@ const getAccessToken = async () => {
 		const searchParams = new URLSearchParams(window.location.search);
 		const code = await searchParams.get("code");
 		if (!code) {
-			const results = await axios.get("YOUR_SERCERLESS_GET_AUTH_URL_ENDPOINT");
+			const results = await axios.get("https://hk4s41skal.execute-api.us-west-1.amazonaws.com/dev/api/get-auth-url");
 			const { authUrl } = results.data;
 			return (window.location.href = authUrl);
 		}
@@ -51,7 +51,7 @@ const getEvents = async () => {
 
 	if (token) {
 		removeQuery();
-		const url = 'YOUR_GET_EVENTS_API_ENDPOINT' + '/' + token;
+		const url = 'https://hk4s41skal.execute-api.us-west-1.amazonaws.com/dev/api/get-auth-url' + '/' + token;
 		const result = await axios.get(url);
 		if (result.data) {
 			var locations = extractLocations(result.data.events);
@@ -80,7 +80,7 @@ const removeQuery = () => {
 const getToken = async (code) => {
 	const encodeCode = encodeURIComponent(code);
 	const { access_token } = await fetch(
-		'YOUR_GET_ACCESS_TOKEN_ENDPOINT' + '/' + encodeCode
+		'https://hk4s41skal.execute-api.us-west-1.amazonaws.com/dev/api/token' + '/' + encodeCode
 	)
 		.then((res) => {
 			return res.json();
