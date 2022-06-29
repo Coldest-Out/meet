@@ -87,6 +87,17 @@ input[type="number"] {
   position: relative;
 }
 
+.event:hover {
+  padding: 10px 10px 35px;
+  margin-bottom: 10px;
+  text-align: left;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  background-color: rgb(235, 175, 35);
+  transform: scale(1.025);
+}
+
 .details-btn {
   position: absolute;
   right: 5px;
@@ -215,16 +226,17 @@ input[type="number"] {
 }
 
 .btn-details:hover {
-  background-color: burlywood;
-  color: black;
+  background-color: black;
+  color: white;
 }
 
+/*
 .hero-img {
   background: url('img/planner.jpg');
   position: absolute;
 
 }
-
+*/
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {
     flex-direction: row;
