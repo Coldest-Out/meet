@@ -19,13 +19,16 @@ const getAccessToken = async () => {
 		const searchParams = new URLSearchParams(window.location.search);
 		const code = await searchParams.get("code");
 		if (!code) {
-			const results = await axios.get("https://hk4s41skal.execute-api.us-west-1.amazonaws.com/dev/api/get-auth-url");
+			const results = await axios.get(
+				"https://hk4s41skal.execute-api.us-west-1.amazonaws.com/dev/api/get-auth-url"
+			);
 			const { authUrl } = results.data;
 			return (window.location.href = authUrl);
 		}
 		return code && getToken(code);
 	}
 	return accessToken;
+
 }
 
 const checkToken = async (accessToken) => {
@@ -38,7 +41,7 @@ const checkToken = async (accessToken) => {
 	return result;
 };
 
-const getEvents = async (max_results = 32) => {
+const getEvents = async () => {
 	NProgress.start();
 
 	if (window.location.href.startsWith("http://localhost")) {
@@ -48,11 +51,10 @@ const getEvents = async (max_results = 32) => {
 
 
 	const token = await getAccessToken();
-	console.log('getEvents token: ', token)
 
 	if (token) {
 		removeQuery();
-		const url = `https://hk4s41skal.execute-api.us-west-1.amazonaws.com/dev/api/get-auth-url/${token}/${max_results}`;
+		const url = 'https://hk4s41skal.execute-api.us-west-1.amazonaws.com/dev/api/get-events' + '/' + token;
 		const result = await axios.get(url);
 		if (result.data) {
 			var locations = extractLocations(result.data.events);
@@ -78,20 +80,23 @@ const removeQuery = () => {
 	}
 };
 
+
 const getToken = async (code) => {
-	const encodeCode = encodeURIComponent(code);
-	const { access_token } = await fetch(
-		`https://hk4s41skal.execute-api.us-west-1.amazonaws.com/dev/api/token/${encodeCode}`
-	)
-		.then((res) => {
-			return res.json();
-		})
-		.catch((error) => error);
+	try {
+		const encodeCode = encodeURIComponent(code);
 
-	access_token && localStorage.setItem("access_token", access_token);
+		const response = await fetch('https://hk4s41skal.execute-api.us-west-1.amazonaws.com/dev/api/token' + '/' + encodeCode);
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`)
+		}
+		const { access_token } = await response.json();
+		access_token && localStorage.setItem("access_token", access_token);
+		return access_token;
+	} catch (error) {
+		error.json();
+	}
+}
 
-	return access_token;
-};
 
 const extractLocations = (events) => {
 	var extractLocations = events.map((event) => event.location);
@@ -99,4 +104,4 @@ const extractLocations = (events) => {
 	return locations;
 };
 
-export { getEvents, extractLocations, getAccessToken, removeQuery, checkToken, getToken };
+export { extractLocations, removeQuery, checkToken, getToken, getEvents, getAccessToken };
