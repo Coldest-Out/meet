@@ -2,6 +2,7 @@ import { loadFeature, defineFeature } from "jest-cucumber";
 import React from "react";
 import { mount } from "enzyme";
 
+
 import App from "../App";
 
 const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
@@ -15,11 +16,10 @@ defineFeature(feature, (test) => {
 		});
 
 		when('an event is displayed', () => {
-
 		});
 
 		then('the event details will be collapsed.', () => {
-			expect(AppWrapper.find('.extra-details')).toHaveLength(0)
+			expect(AppWrapper.find('.event-details')).toHaveLength(0)
 		});
 	});
 

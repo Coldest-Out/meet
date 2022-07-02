@@ -9,6 +9,8 @@ import { extractLocations, getEvents } from '../api';
 
 
 
+
+
 // Unit tests
 describe('<App /> component', () => {
 	let AppWrapper;
