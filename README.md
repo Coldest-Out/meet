@@ -9,19 +9,19 @@
 - So that I can see the event details
 
 2. **Scenario 1:** An event element is collapsed by default
-- **Given** the user has searched for an event
-- **When** the user has not yet clicked on an event
-- **Then** the event details will stay collapsed
+- **Given** the user is on the main page of the app
+- **When** an event is displayed
+- **Then** the event details will be collapsed.
 
 3. **Scenario 2:** User can expand an event to see its details
-- **Given** the user has searched for an event
-- **When** the user clicks on the event
-- **Then** the event details will appear
+- **Given** the user is displayed with a list of events
+- **When** the user clicks on an individual event
+- **Then** the event details will be displayed
 
 4. **Scenario 3:** User can collapse an event to hide its details
-- **Given** the user had finished viewing the current event
-- **When** the user clicks to close out of the event
-- **Then** the event details and info will be collapsed and hidden again
+- **Given** The user has clicked on an event to display details
+- **When** the user clicks on “close” button
+- **Then** the event details will hide
 
 ### FEATURE 3: SPECIFY NUMBER OF EVENTS
 1. **User Story:**
