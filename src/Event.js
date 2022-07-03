@@ -12,13 +12,21 @@ class Event extends Component {
 		}
 	};
 
+	/*
 	handleClick = () => {
 		this.state.collapsed
 			? this.setState({ collapsed: false })
 			: this.setState({ collapsed: true });
 	};
+	*/
+	handleClick = () => {
+		this.setState({
+			collapsed: !this.state.collapsed
+		});
+	};
 
 	render() {
+		const { collapsed } = this.state;
 		const { event } = this.props;
 		return (
 			<div className="event">
@@ -27,10 +35,15 @@ class Event extends Component {
 					{event.start.dateTime} {event.start.timeZone}
 				</p>
 				<p className="location">{event.location}</p>
-				<button className="btn-details" onClick={this.handleClick}>
-					show details
+
+
+				<button className={`btn-details ${collapsed ? 'show' : 'hide'}-details`} onClick={this.handleClick}>
+					{collapsed ? 'Show Details' : 'Hide Details'}
 				</button>
-				<div className="event-details">{this.showSummary()}</div>
+
+				{!collapsed &&
+					<div className={`event-details ${this.state.collapsed ? 'hide' : 'show'}`}>{this.showSummary()}</div>}
+
 			</div>
 		);
 	}

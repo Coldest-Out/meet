@@ -60,7 +60,12 @@ describe('<Event /> component', () => {
 	});
 
 	test('show no event details if collapsed', () => {
-		EventWrapper.setState({ collapsed: true });
-		expect(EventWrapper.find('.event-details').text()).toEqual('');
+		//EventWrapper.setState({ collapsed: true });
+		//expect(EventWrapper.find('.event-details').text()).toEqual('');
+		EventWrapper.setState({
+			collapsed: false
+		});
+		EventWrapper.find('.hide-details').simulate('click');
+		expect(EventWrapper.state('collapsed')).toBe(true);
 	});
 });
