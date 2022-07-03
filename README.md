@@ -30,14 +30,14 @@
 - So that I can see many or few at a time
 
 2. **Scenario 1:** When user hasn’t specified a number, 32 is the default number
-- **Given** the user hasn’t specified a number of event
-- **When** the user started their search in a city
-- **Then** 32 event will be seen at a time
+- **Given** the user is on the main page of the app
+- **When** the user hasn't specified a number of events
+- **Then** the default number of displayed events will be 32
 
 3. **Scenario 2:** User can change the number of events they want to see
-- **Given** the user specified a number of event
-- **When** the user started their search in a city
-- **Then** that number of events will be seen at a time
+- **Given** the user is on the main page
+- **When** the user set a number of events he or she wants to see in the “Number of events” box
+- **Then** this number of events will be displayed
 
 ### FEATURE 4: USE THE APP WHEN OFFLINE
 1. **User Story:**
