@@ -10,7 +10,8 @@ import './nprogress.css';
 class App extends Component {
   state = {
     events: [],
-    locations: []
+    locations: [],
+    numberOfEvents: 32
   }
 
   componentDidMount() {
@@ -25,6 +26,7 @@ class App extends Component {
   componentWillUnmount() {
     this.mounted = false;
   }
+
 
   updateEvents = (location) => {
     getEvents().then((events) => {

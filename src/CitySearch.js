@@ -38,7 +38,9 @@ class CitySearch extends Component {
 	handleItemClicked = (suggestion) => {
 		this.setState({
 			query: suggestion,
-			showSuggestions: false
+			suggestions: [],
+			showSuggestions: false,
+			infoText: ''
 		});
 
 		this.props.updateEvents(suggestion);
@@ -47,7 +49,9 @@ class CitySearch extends Component {
 	render() {
 		return (
 			<div className="CitySearch">
-				<InfoAlert text={this.state.infoText} />
+				<InfoAlert id="infoAlert" text={this.state.infoText} />
+				<h1 className="title">Meet App</h1>
+				<p className="searchcity">Choose nearest city</p>
 				<input
 					type="text"
 					className="city"

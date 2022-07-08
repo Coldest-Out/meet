@@ -230,6 +230,16 @@ input[type="number"] {
   color: white;
 }
 
+#errorAlert {
+  position: fixed;
+  bottom: 0px;
+}
+
+#infoAlert {
+  position: fixed;
+  top: 20px;
+}
+
 /*
 .hero-img {
   background: url('img/planner.jpg');
