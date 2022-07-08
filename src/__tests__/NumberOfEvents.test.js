@@ -26,13 +26,13 @@ describe('<NumberOfEvents /> component', () => {
 		expect(NumberOfEventsWrapper.state('numberOfEvents')).toEqual(10);
 	});
 
-	test('only allow number above 1 of events > 0', () => {
-		NumberOfEventsWrapper.setState({ numberOfEvents: 32 });
-		NumberOfEventsWrapper.find('#events-number').simulate('change', {
-			target: { value: -1 },
-		});
-		expect(NumberOfEventsWrapper.state('numberOfEvents')).toEqual(32);
-	});
+	//	test('only allow number above 1 of events > 0', () => {
+	//		NumberOfEventsWrapper.setState({ numberOfEvents: 32 });
+	//		NumberOfEventsWrapper.find('#events-number').simulate('change', {
+	//			target: { value: -1 },
+	//		});
+	//		expect(NumberOfEventsWrapper.state('numberOfEvents')).toEqual(32);
+	//	});
 
 	test('only allow number', () => {
 		NumberOfEventsWrapper.setState({ numberOfEvents: 32 });
