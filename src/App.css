@@ -230,10 +230,12 @@ input[type="number"] {
   color: white;
 }
 
+/*
 #errorAlert {
   position: fixed;
   bottom: 0px;
 }
+*/
 
 #infoAlert {
   position: fixed;
