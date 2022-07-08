@@ -8,18 +8,20 @@ class NumberOfEvents extends Component {
 	};
 
 	handleInputChanged = (event) => {
-		let value = event.target.value;
-		if (value === '') { value = undefined };
-		if (value < 0 || value > 32) {
+		const value = event.target.value;
+
+		if (value <= 0 || value > 32) {
 			this.setState({
-				errorText: 'Select a number from 1 to 32'
-			})
-		} if (!isNaN(value) && value >= 1) {
-			return this.setState({ numberOfEvents: value });
+				numberOfEvents: "",
+				infoText: "Please enter a number from 1 to 32"
+			});
 		} else {
-			console.log('Please enter a valid number.');
-			return this.state.numberOfEvents;
+			this.setState({
+				numberOfEvents: value,
+				infoText: ""
+			});
 		}
+		this.props.updateNumberOfEvents(value);
 	};
 
 	render() {
