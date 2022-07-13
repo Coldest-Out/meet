@@ -19,6 +19,8 @@ class NumberOfEvents extends Component {
 			}
 		};
 	*/
+
+	//Pre 4.7, trying to get events to change through example code. (including error message)
 	handleInputChanged = (event) => {
 		const value = event.target.value;
 

@@ -35,6 +35,7 @@ class App extends Component {
     this.updateEvents(this.state.locations, numberOfEvents);
   };
 
+  //Pre 4.7, trying to get events to change through example code.
   /*
   updateEvents = (location) => {
     getEvents().then((events) => {
