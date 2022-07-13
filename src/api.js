@@ -50,7 +50,7 @@ const getEvents = async () => {
 	}
 
 	if (!navigator.onLine) {
-		window.alert('You are Offline. Please reconnect to the internet.')
+		window.alert('You are Offline. Please reconnect to the internet, then refresh the page')
 		const data = localStorage.getItem("lastEvents");
 		NProgress.done();
 		return data ? JSON.parse(data).events : [];;
